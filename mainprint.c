@@ -73,8 +73,11 @@ void fill_number(int numb)
  */
 void fill_string_to_buffer(char *strn)
 {
-	if (!strn)
+	if (strn == NULL)
+	{
+		fill_string_to_buffer("(null)");
 		return;
+	}
 
 	while (*strn != '\0')
 	{
