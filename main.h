@@ -6,6 +6,7 @@
 #define BUFFER 1024
 
 extern int buffer_track;
+extern int printed_char;
 extern char buffer[BUFFER];
 
 int _printf(const char *format, ...);

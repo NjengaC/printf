@@ -4,6 +4,7 @@
 #include <stdlib.h>
 char buffer[BUFFER];
 int buffer_track;
+int printed_char = 0;
 /**
  * fill_char_buffer - fills buffer with character
  * @c: character to fill
@@ -154,7 +155,7 @@ int _printf(const char *format, ...){
 	va_list args;
 	char n;
 	int num;
-	int printed_char;
+	/*int printed_char = 0;*/
 	char *str;
 
 	va_start(args, format);
@@ -190,7 +191,6 @@ int _printf(const char *format, ...){
 			fill_char_buffer(*format);
 	format++;
 	}
-	printed_char = buffer_track;
 	flush_buffer();
 	va_end(args);
 	return (printed_char);
