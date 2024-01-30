@@ -142,6 +142,7 @@ void handle_others(char specifier, va_list args)
 	}
 	else
 	{
+		fill_char_buffer('%');
 		fill_char_buffer(specifier);
 	}
 }
