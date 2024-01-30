@@ -14,12 +14,14 @@ int buffer_track;
 void fill_char_buffer(char c)
 {
 /*	if (!c)
-		return;
+		return;*/
 	if (c == '\0')
 	{
 		buffer[buffer_track] = '\0';
 		buffer_track++;
-	}*/
+	}
+	else
+	{
 	buffer[buffer_track] = c;
 
 	if (buffer_track == BUFFER)
@@ -27,6 +29,7 @@ void fill_char_buffer(char c)
 		flush_buffer();
 	}
 	buffer_track++;
+	}
 }
 /**
  * fill_number - fills buffer with converted number
