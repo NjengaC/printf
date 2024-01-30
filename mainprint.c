@@ -27,6 +27,7 @@ void fill_char_buffer(char c)
 	if (buffer_track == BUFFER)
 	{
 		flush_buffer();
+		return;
 	}
 	buffer_track++;
 	}
