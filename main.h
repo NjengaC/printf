@@ -3,6 +3,7 @@
 
 #include <stdarg.h>
 #include <string.h>
+#include <limits.h>
 #define BUFFER 1024
 
 extern int buffer_track;
