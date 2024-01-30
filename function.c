@@ -98,7 +98,6 @@ void flush_buffer(void)
 		return;
 	_puts(buffer);
 	_memset(buffer, 0, sizeof(buffer));
-	printed_char = printed_char + buffer_track;
 	buffer_track = 0;
 }
 

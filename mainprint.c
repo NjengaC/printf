@@ -4,7 +4,7 @@
 #include <stdlib.h>
 char buffer[BUFFER];
 int buffer_track;
-int printed_char = 0;
+
 /**
  * fill_char_buffer - fills buffer with character
  * @c: character to fill
@@ -13,12 +13,15 @@ int printed_char = 0;
  */
 void fill_char_buffer(char c)
 {
+/*	if (!c)
+		return;
 	if (c == '\0')
 	{
 		buffer[buffer_track] = '\0';
 		buffer_track++;
-		return;
-	}
+	}*/
+	if (c)
+	{
 	buffer[buffer_track] = c;
 
 	if (buffer_track == BUFFER)
@@ -26,6 +29,7 @@ void fill_char_buffer(char c)
 		flush_buffer();
 	}
 	buffer_track++;
+	}
 }
 /**
  * fill_number - fills buffer with converted number
@@ -141,7 +145,6 @@ void handle_others(char specifier, va_list args)
 	}
 	else
 	{
-		fill_char_buffer('%');
 		fill_char_buffer(specifier);
 	}
 }
@@ -155,12 +158,12 @@ int _printf(const char *format, ...){
 	va_list args;
 	char n;
 	int num;
-	/*int printed_char = 0;*/
+	int printed_char;
 	char *str;
 
 	va_start(args, format);
-	if (format == NULL)
-		return (0);
+	if (format == NULL || strlen(format) == 1)
+		return (-1);
 	while (*format)
 	{
 		if (*format == '%')
@@ -191,7 +194,9 @@ int _printf(const char *format, ...){
 			fill_char_buffer(*format);
 	format++;
 	}
+	printed_char = buffer_track;
 	flush_buffer();
 	va_end(args);
+
 	return (printed_char);
 }
