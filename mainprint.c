@@ -13,8 +13,6 @@ int printed_char = 0;
  */
 void fill_char_buffer(char c)
 {
-/*	if (!c)
-		return;*/
 	if (c == '\0')
 	{
 		buffer[buffer_track] = '\0';
@@ -96,6 +94,7 @@ void fill_string_to_buffer(char *strn)
  *
  * Return: characters
  */
+void handle_others(char specifier, va_list args);
 void handle_others(char specifier, va_list args)
 {
 	unsigned int unsig;
@@ -154,7 +153,8 @@ void handle_others(char specifier, va_list args)
  *
  * Return: characters
  */
-int _printf(const char *format, ...){
+int _printf(const char *format, ...)
+{
 	va_list args;
 	char n;
 	int num;
