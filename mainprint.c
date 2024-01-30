@@ -20,8 +20,6 @@ void fill_char_buffer(char c)
 		buffer[buffer_track] = '\0';
 		buffer_track++;
 	}*/
-	if (c)
-	{
 	buffer[buffer_track] = c;
 
 	if (buffer_track == BUFFER)
@@ -29,7 +27,6 @@ void fill_char_buffer(char c)
 		flush_buffer();
 	}
 	buffer_track++;
-	}
 }
 /**
  * fill_number - fills buffer with converted number
